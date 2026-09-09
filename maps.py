@@ -77,103 +77,103 @@ j = _
 
 # ---------------------- character generators - coastal route ----------------------
 
-def geelongchars():
+def geelong_chars():
     """generates list of characters to convert for the geelong game_map"""
     chars = ["z", "1", "a"]
     return chars
 
-def lornechars():
+def lorne_chars():
     """generates list of characters to convert for the lorne game_map"""
-    chars = geelongchars()
-    newchars = ["b", "2"]
-    for char in newchars:
+    chars = geelong_chars()
+    new_chars = ["b", "2"]
+    for char in new_chars:
         chars.append(char)
     return chars
 
-def apollochars():
+def apollo_chars():
     """generates list of characters to convert for the apollo game_map"""
-    chars = lornechars()
-    newchars = ["k", "y"]
-    for char in newchars:
+    chars = lorne_chars()
+    new_chars = ["k", "y"]
+    for char in new_chars:
         chars.append(char)
     return chars
 
-def apostlechars():
+def apostle_chars():
     """generates list of characters to convert for the apostle game_map"""
-    chars = apollochars()
-    newchars = ["c", "3"]
-    for char in newchars:
+    chars = apollo_chars()
+    new_chars = ["c", "3"]
+    for char in new_chars:
         chars.append(char)
     return chars
 
-def warrnamboolchars():
+def warrnambool_chars():
     """generates list of characters to convert for the warrnambool game_map"""
-    chars = apostlechars()
-    newchars = ["d", "4"]
-    for char in newchars:
+    chars = apostle_chars()
+    new_chars = ["d", "4"]
+    for char in new_chars:
         chars.append(char)
     return chars
 
-def portlandchars():
+def portland_chars():
     """generates list of characters to convert for the portland game_map"""
-    chars = warrnamboolchars()
-    newchars = ["e", "5", "6"]
-    for char in newchars:
+    chars = warrnambool_chars()
+    new_chars = ["e", "5", "6"]
+    for char in new_chars:
         chars.append(char)
     return chars
 
-def sa_coastalchars():
+def sa_coastal_chars():
     """generates list of characters to convert for the sa_coastal game_map"""
-    chars = portlandchars()
-    newchars = ["w", "7"]
-    for char in newchars:
+    chars = portland_chars()
+    new_chars = ["w", "7"]
+    for char in new_chars:
         chars.append(char)
     return chars
 
 # ---------------------- character generators - inland route ----------------------
 
-def ballaratchars():
+def ballarat_chars():
     """generates list of characters to convert for the ballarat game_map"""
     chars = ["z", "8", "f"]
     return chars
 
-def araratchars():
+def ararat_chars():
     """generates list of characters to convert for the ararat game_map"""
-    chars =  ballaratchars()
-    newchars = ["g", "9"]
-    for char in newchars:
+    chars =  ballarat_chars()
+    new_chars = ["g", "9"]
+    for char in new_chars:
         chars.append(char)
     return chars
 
 
 # noinspection SpellCheckingInspection
-def hallsgapchars():
+def halls_gap_chars():
     """generates list of characters to convert for the halls gap game_map"""
-    chars = araratchars()
-    newchars = ["h", "0"]
-    for char in newchars:
+    chars = ararat_chars()
+    new_chars = ["h", "0"]
+    for char in new_chars:
         chars.append(char)
     return chars
 
-def horshamchars():
+def horsham_chars():
     """generates list of characters to convert for the horsham game_map"""
-    chars = hallsgapchars()
-    newchars = ["i", "o"]
-    for char in newchars:
+    chars = halls_gap_chars()
+    new_chars = ["i", "o"]
+    for char in new_chars:
         chars.append(char)
     return chars
 
-def sa_inlandchars():
+def sa_inland_chars():
     """generates list of characters to convert for the sa_inland game_map"""
-    chars = horshamchars()
-    newchars = ["j"]
-    for char in newchars:
+    chars = horsham_chars()
+    new_chars = ["j"]
+    for char in new_chars:
         chars.append(char)
     return chars
 
 # ---------------------- character replacement ----------------------
 
-def replacechars(chars, game_map):
+def replace_chars(chars, game_map):
     """replaces given characters in a game_map with the correct path characters"""
     for character in chars:
         # underscores
@@ -189,7 +189,7 @@ def replacechars(chars, game_map):
         elif character in ["o"]:
             game_map = game_map.replace(character, "|")
         else:
-            print("error: the", character, "character has not been included in the replacechars() function")
+            print("error: the", character, "character has not been included in the replace_chars() function")
 
     return game_map
 
@@ -236,92 +236,92 @@ def game_maps(location):
 
     if location == "melbourne":
         temp_game_map = game_map
-        tempchars = []
-        temp_game_map = replacechars(tempchars, temp_game_map)
+        temp_chars = []
+        temp_game_map = replace_chars(temp_chars, temp_game_map)
         temp_game_map = temp_game_map.replace("[", "X")
         temp_game_map = common.erase(characters, landmarks, temp_game_map)
 
     elif location == "geelong":
         temp_game_map = game_map
-        tempchars = geelongchars()
-        temp_game_map = replacechars(tempchars, temp_game_map)
+        temp_chars = geelong_chars()
+        temp_game_map = replace_chars(temp_chars, temp_game_map)
         temp_game_map = temp_game_map.replace("]", "X")
         temp_game_map = common.erase(characters, landmarks, temp_game_map)
 
     elif location == "lorne":
         temp_game_map = game_map
-        tempchars = lornechars()
-        temp_game_map = replacechars(tempchars, temp_game_map)
+        temp_chars = lorne_chars()
+        temp_game_map = replace_chars(temp_chars, temp_game_map)
         temp_game_map = temp_game_map.replace("{", "X")
         temp_game_map = common.erase(characters, landmarks, temp_game_map)
 
     elif location == "apollo":
         temp_game_map = game_map
-        tempchars = apollochars()
-        temp_game_map = replacechars(tempchars, temp_game_map)
+        temp_chars = apollo_chars()
+        temp_game_map = replace_chars(temp_chars, temp_game_map)
         temp_game_map = temp_game_map.replace("}", "X")
         temp_game_map = common.erase(characters, landmarks, temp_game_map)
 
     elif location == "apostle":
         temp_game_map = game_map
-        tempchars = apostlechars()
-        temp_game_map = replacechars(tempchars, temp_game_map)
+        temp_chars = apostle_chars()
+        temp_game_map = replace_chars(temp_chars, temp_game_map)
         temp_game_map = temp_game_map.replace("$", "X")
         temp_game_map = common.erase(characters, landmarks, temp_game_map)
 
     elif location == "warrnambool":
         temp_game_map = game_map
-        tempchars = warrnamboolchars()
-        temp_game_map = replacechars(tempchars, temp_game_map)
+        temp_chars = warrnambool_chars()
+        temp_game_map = replace_chars(temp_chars, temp_game_map)
         temp_game_map = temp_game_map.replace("%", "X")
         temp_game_map = common.erase(characters, landmarks, temp_game_map)
 
     elif location == "portland":
         temp_game_map = game_map
-        tempchars = portlandchars()
-        temp_game_map = replacechars(tempchars, temp_game_map)
+        temp_chars = portland_chars()
+        temp_game_map = replace_chars(temp_chars, temp_game_map)
         temp_game_map = temp_game_map.replace("^", "X")
         temp_game_map = common.erase(characters, landmarks, temp_game_map)
 
     elif location == "sa_coastal":
         temp_game_map = game_map
-        tempchars = sa_coastalchars()
-        temp_game_map = replacechars(tempchars, temp_game_map)
+        temp_chars = sa_coastal_chars()
+        temp_game_map = replace_chars(temp_chars, temp_game_map)
         temp_game_map = temp_game_map.replace("<", "X")
         temp_game_map = common.erase(characters, landmarks, temp_game_map)
 
     elif location == "ballarat":
         temp_game_map = game_map
-        tempchars = ballaratchars()
-        temp_game_map = replacechars(tempchars, temp_game_map)
+        temp_chars = ballarat_chars()
+        temp_game_map = replace_chars(temp_chars, temp_game_map)
         temp_game_map = temp_game_map.replace("&", "X")
         temp_game_map = common.erase(characters, landmarks, temp_game_map)
 
     elif location == "ararat":
         temp_game_map = game_map
-        tempchars = araratchars()
-        temp_game_map = replacechars(tempchars, temp_game_map)
+        temp_chars = ararat_chars()
+        temp_game_map = replace_chars(temp_chars, temp_game_map)
         temp_game_map = temp_game_map.replace("*", "X")
         temp_game_map = common.erase(characters, landmarks, temp_game_map)
 
     elif location == "hallsgap":
         temp_game_map = game_map
-        tempchars = hallsgapchars()
-        temp_game_map = replacechars(tempchars, temp_game_map)
+        temp_chars = halls_gap_chars()
+        temp_game_map = replace_chars(temp_chars, temp_game_map)
         temp_game_map = temp_game_map.replace("(", "X")
         temp_game_map = common.erase(characters, landmarks, temp_game_map)
 
     elif location == "horsham":
         temp_game_map = game_map
-        tempchars = horshamchars()
-        temp_game_map = replacechars(tempchars, temp_game_map)
+        temp_chars = horsham_chars()
+        temp_game_map = replace_chars(temp_chars, temp_game_map)
         temp_game_map = temp_game_map.replace(")", "X")
         temp_game_map = common.erase(characters, landmarks, temp_game_map)
 
     elif location == "sa_inland":
         temp_game_map = game_map
-        tempchars = sa_inlandchars()
-        temp_game_map = replacechars(tempchars, temp_game_map)
+        temp_chars = sa_inland_chars()
+        temp_game_map = replace_chars(temp_chars, temp_game_map)
         temp_game_map = temp_game_map.replace(">", "X")
         temp_game_map = common.erase(characters, landmarks, temp_game_map)
 
